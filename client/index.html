@@ -13,47 +13,47 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- login -->
 
-    <title>Hello, world!</title>
+    <title>Hacktive News</title>
   </head>
   <body>
 
     <!-- page Login Register -->
-    <div class="limiter">
+    <div class="limiter" id="login-regis-page">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
-					<span class="login100-form-title-1">
+					<span class="login100-form-title-1" id="title-login">
 						Login
 					</span>
-                    <span class="login100-form-title-1" hidden>
-						Register
+                    <span class="login100-form-title-1" id="title-regis">
+						Regis
 					</span>
 				</div>
 
                 <!-- form Login -->
 				<form id="form-login" class="login100-form validate-form">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Enter username">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" id="email" placeholder="Enter username">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<input class="input100" type="password" id="password" placeholder="Enter password">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<input class="input-checkbox100" id="show-login-password" type="checkbox" name="remember-me">
 							<label class="label-checkbox100" for="ckb1">
-								Remember me
+								show password
 							</label>
 						</div>
 
 						<div>
-							<a id="register" class="txt1">
+							<a id="btn-register" class="txt1">
 								Register?
 							</a>
 						</div>
@@ -70,21 +70,32 @@
 
 
                 <!-- form Register -->
-                <form id="form-register" hidden class="login100-form validate-form">
+                <form id="form-register" class="login100-form validate-form">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Enter username">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" id="email-regis" placeholder="Enter username">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<input class="input100" type="password" id="password-regis" placeholder="Enter password">
 						<span class="focus-input100"></span>
 					</div>
+                    <div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="show-regis-password" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								show password
+							</label>
+						</div>
+					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button id="button-regis" class="login100-form-btn" style="margin-right: 15px; cursor: pointer;">
 							Register
+						</button>
+                        <button id="button-cancel-regis" class="login100-form-btn">
+							Cancel
 						</button>
 					</div>
 				</form>
@@ -95,7 +106,7 @@
     <!-- page Login Register End -->
 
     <!-- page Home -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -104,53 +115,25 @@
                     </li>   
                 </ul>
                 <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Logout</button>
+                <button class="btn btn-success" id="btn-logout" type="submit">Logout</button>
                 </form>
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
-
+    <div class="container mt-5" id="containerHome">
         <!-- card -->
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div id="card-news">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="" alt="...">
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
                     </div>
                 </div>
             </div>
