@@ -1,5 +1,5 @@
-// const base_url = 'http://localhost:3000'
-const base_url = 'https://hacktiv-news-server.herokuapp.com'
+const base_url = 'http://localhost:3000'
+// const base_url = 'https://hacktiv-news-server.herokuapp.com'
 
 $(document).ready(()=>{
     console.log('hello world')
@@ -353,7 +353,7 @@ const getCollections = () => {
         data.data.forEach((collection, i) => {
           let row = `<tr>
                 <td>${i + 1}</td>
-                <td> <a href="${collection.url}"  target="_blank">${collection.title.split('-')[0]}</a></td>   
+                <td> <a href="${collection.url}"  target="_blank">${collection.title.split(' - ')[0]}</a></td>   
                 <td >
                     <button type="button" data-id="${
                       collection.id
