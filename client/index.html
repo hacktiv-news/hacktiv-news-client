@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- login -->
 
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Hacktive News</title>
   </head>
   <body>
@@ -173,7 +174,23 @@
           <!-- card end -->
 				</div>
 				<div class="col-4">
-					2 of 2
+					<div id="collection-container">
+						<h5 class="text-center">Your News Collections</h5>
+						<div class="row justify-content-center mt-2">
+							<div class="col-12">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">No</th>
+											<th scope="col">Title</th>
+											<th scope="col">Action</th>
+										</tr>
+									</thead>
+									<tbody id="collections"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
         
@@ -186,10 +203,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     <!-- google oauth -->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	  <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="index.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
   </body>
 </html>
