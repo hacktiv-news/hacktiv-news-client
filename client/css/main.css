@@ -499,7 +499,7 @@ input.input100 {
   font-family: sans-serif
 } */
 
-#container-weather {
+#containerWeather {
   height: 25vh;
   background-color: #ffffff;
   border-color: #ffffff;
@@ -509,7 +509,7 @@ input.input100 {
 }
 
 @media(max-width:767px) {
-  .container-weather {
+  .containerWeather {
       height: 100px;
   }
 }
