@@ -26,11 +26,11 @@
 						Login
 					</span>
                     <span class="login100-form-title-1" id="title-regis">
-						Regis
+						Registrasi
 					</span>
 				</div>
 
-                <!-- form Login -->
+        <!-- form Login -->
 				<form id="form-login" class="login100-form validate-form">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Email</span>
@@ -47,8 +47,8 @@
 					<div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="show-login-password" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								show password
+							<label class="label-checkbox100" for="ckb1" onclick="lihatLoginPassword()""> 
+								Show password
 							</label>
 						</div>
 
@@ -65,7 +65,7 @@
 						</button>
 					</div>
 				</form>
-                <!-- form Login End -->
+        <!-- form Login End -->
 
 
 
@@ -85,8 +85,8 @@
                     <div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="show-regis-password" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								show password
+							<label class="label-checkbox100" for="ckb1" onclick="lihatRegisPassword()">
+								Show password
 							</label>
 						</div>
 					</div>
@@ -120,12 +120,36 @@
             </div>
         </div>
     </nav>
+		
+		<div class="container d-flex justify-content-center" id="container-weather">
+			<div class="weather">
+					<div class="row" id="card-weather">
+							<div class="col-md-5">
+									<div class="card" id="cardweather1">
+											<div class="title"><p>Jakarta</p></div>
+											<div class="temp mt-5">+20<sup>&deg;</sup></div>
+									</div>
+							</div>
+							<div class="col-md-5">
+									<div class="card" id="cardweather2"> 
+											<div class="title"><p>Bandung</p></div>
+											<div class="temp mt-5">+18<sup>&deg;</sup></div>
+									</div>
+							</div>
+					</div>
+			</div>
+	</div>
+	
+	
+	</div>
     <div class="container mt-5" id="containerHome">
-        <!-- card -->
-        <div id="card-news">
+			<div class="row">
+				<div class="col-8">
+					<!-- card -->
+					<div id="card-news">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <img src="" alt="...">
                     </div>
                     <div class="col-md-8">
@@ -137,8 +161,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- card end -->
+          </div>
+          <!-- card end -->
+				</div>
+				<div class="col-4">
+					2 of 2
+				</div>
+			</div>
+        
     </div>
     <!-- page Home end -->
 
