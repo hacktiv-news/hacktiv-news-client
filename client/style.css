@@ -24,3 +24,15 @@ body::after{
     opacity: 0.6;
     filter: alpha(opacity=60); /* For IE8 and earlier */
 }
+
+
+#judul-app{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 45px;
+    margin: 10px;
+    color: #f4d160;
+}
+
+#navbar{
+    background-color: #28527a;
+}
