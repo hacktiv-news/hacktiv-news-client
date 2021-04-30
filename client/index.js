@@ -56,8 +56,7 @@ const checkLogin = () =>{
         getNews()
         getNewsSport()
         getNewsHealth()
-        getWeatherJakarta()
-        getWeatherBandung()
+        getWeather()
     }else{
         $('#login-regis-page').show()
         $('#form-login').show()
@@ -215,7 +214,7 @@ const getNewsSport = () =>{
                                 <p class="card-text">${news[i].title}</p>
                                 <a href="${news[i].url}" target="_blank" class="card-text" style="color:blue">buka berita</a>
                                 <p class="card-text mt-3"><small class="text-muted">${new Date(Date.parse(news[i].publishedAt)).toISOString().split('T')[0]}</small></p>
-                                <button onClick="addToCollection(${news[i].url}) class="btn btn-sm btn-secondary" id="btn-${news[i].url}" type="submit">Add to Collection</button>
+                                <button class="btn btn-sm btn-secondary" id="btn-${news[i].url} onClick="addToCollection(${news[i].url}) " type="submit">Add to Collection</button>
                             </div>
                         </div>
                     </div>
@@ -244,7 +243,7 @@ const getNewsHealth = () =>{
 // 3rd Party API News
 
 // 3rd Party API Weather
-const getWeatherJakarta = () =>{
+const getWeather = () =>{
     $.ajax({
         method: "GET",
         url: `http://localhost:3000/weather/jakarta`
@@ -259,26 +258,23 @@ const getWeatherJakarta = () =>{
                 </div>
             </div>
         `)
-    })
-    .fail((err)=>{
-        console.log(err)
-    })
-}
-
-const getWeatherBandung = () =>{
-    $.ajax({
-        method: "GET",
-        url: `http://localhost:3000/weather/bandung`
-    })
-    .done((data)=>{
-        $('#card-weather').append(`
-            <div class="col-md-5">
-                <div class="card" id="cardweather2">
-                    <div class="title"><p>Bandung</p></div>
-                    <div class="temp mt-5">${data.data.current.temperature}<sup>&deg;</sup></div>
+        $.ajax({
+            method: "GET",
+            url: `http://localhost:3000/weather/bandung`
+        })
+        .done((data)=>{
+            $('#card-weather').append(`
+                <div class="col-md-5">
+                    <div class="card" id="cardweather2">
+                        <div class="title"><p>Bandung</p></div>
+                        <div class="temp mt-5">${data.data.current.temperature}<sup>&deg;</sup></div>
+                    </div>
                 </div>
-            </div>
-        `)
+            `)
+        })
+        .fail((err)=>{
+            console.log(err)
+        })
     })
     .fail((err)=>{
         console.log(err)
