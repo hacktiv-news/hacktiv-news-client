@@ -1,4 +1,5 @@
-const base_url = 'http://localhost:3000'
+// const base_url = 'http://localhost:3000'
+const base_url = 'https://hacktiv-news-server.herokuapp.com'
 
 $(document).ready(()=>{
     console.log('hello world')
@@ -90,7 +91,7 @@ function onSignIn(googleUser) {
     const id_token = googleUser.getAuthResponse().id_token;
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:3000/googleLogin',
+        url: base_url + '/googleLogin',
         data:{
             token: id_token
         }
@@ -124,7 +125,7 @@ const registrasi = () =>{
 
     $.ajax({
         method: "POST",
-        url: `http://localhost:3000/registrasi`,
+        url: base_url +  `/registrasi`,
         data:{
             email,
             password
@@ -162,7 +163,7 @@ const login = () =>{
 
     $.ajax({
         method: "POST",
-        url: `http://localhost:3000/login`,
+        url: base_url + `/login`,
         data:{
             email,
             password
@@ -208,7 +209,7 @@ const logout = () =>{
 const getNews = () =>{
     $.ajax({
         method: "GET",
-        url: `http://localhost:3000/news`
+        url: base_url + `/apis/news`
     })
     .done((data)=>{
         console.log(data.data)
@@ -221,7 +222,7 @@ const getNews = () =>{
 const getNewsSport = () =>{
     $.ajax({
         method: "GET",
-        url: `http://localhost:3000/news/sport`
+        url: base_url + `/apis/news/sport`
     })
     .done((data)=>{
         console.log(data)
@@ -262,7 +263,7 @@ const getNewsSport = () =>{
 const getNewsHealth = () =>{
     $.ajax({
         method: "GET",
-        url: `http://localhost:3000/news/health`
+        url: base_url + `/apis/news/health`
     })
     .done((data)=>{
         console.log(data.data)
@@ -277,7 +278,7 @@ const getNewsHealth = () =>{
 const getWeather = () =>{
     $.ajax({
         method: "GET",
-        url: `http://localhost:3000/weather/jakarta`
+        url: base_url + `/apis/weather/jakarta`
     })
     .done((data)=>{
         $('#card-weather').empty()
@@ -291,7 +292,7 @@ const getWeather = () =>{
         `)
         $.ajax({
             method: "GET",
-            url: `http://localhost:3000/weather/bandung`
+            url: base_url + `/apis/weather/bandung`
         })
         .done((data)=>{
             $('#card-weather').append(`
