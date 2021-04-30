@@ -22,6 +22,10 @@ $(document).ready(()=>{
         $('#title-login').show()
         $('#form-register').hide()
         $('#title-regis').hide()
+        $('#email-regis').val('')
+        $('#password-regis').val('')
+        $('#email').val('')
+        $('#password').val('')
     })
 
     //regis
@@ -53,9 +57,9 @@ const checkLogin = () =>{
         $('#containerWeather').show()
         $('#card-weather').show()
         $('#navbar').show()
-        getNews()
+        // getNews()
         getNewsSport()
-        getNewsHealth()
+        // getNewsHealth()
         getWeather()
     }else{
         $('#login-regis-page').show()
@@ -130,7 +134,17 @@ const registrasi = () =>{
         console.log(data)
     })
     .fail((err)=>{
-        console.log(err)
+        console.log(err.responseJSON.errors)
+        let errors = err.responseJSON.errors
+        errors.forEach(err =>{
+            Toastify({
+                text: err,    //pesanya
+                gravity: "top",    // top or bottom
+                position: "right", // left, center or right
+                backgroundColor: "linear-gradient(to right, #f75b5b, #fc1d1d)",  //warnanya
+                duration: 3000
+            }).showToast();
+        })
     })
 }
 // Registrasi End
@@ -161,7 +175,16 @@ const login = () =>{
         console.log(data)
     })
     .fail((err)=>{
-        console.log(err)
+        let errors = err.responseJSON.errors
+        errors.forEach(err =>{
+            Toastify({
+                text: err,    //pesanya
+                gravity: "top",    // top or bottom
+                position: "right", // left, center or right
+                backgroundColor: "linear-gradient(to right, #f75b5b, #fc1d1d)",  //warnanya
+                duration: 3000
+            }).showToast();
+        })
     })
 }
 // Login End
