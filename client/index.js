@@ -50,15 +50,21 @@ const checkLogin = () =>{
     if(localStorage.getItem('access_token')){
         $('#login-regis-page').hide()
         $('#containerHome').show()
+        $('#containerWeather').show()
+        $('#card-weather').show()
         $('#navbar').show()
         getNews()
         getNewsSport()
         getNewsHealth()
+        getWeatherJakarta()
+        getWeatherBandung()
     }else{
         $('#login-regis-page').show()
         $('#form-login').show()
         $('#form-register').hide()
         $('#containerHome').hide()
+        $('#containerWeather').hide()
+        $('#card-weather').hide()
         $('#navbar').hide()
         $('#title-regis').hide()
         $('#title-login').show()
@@ -171,10 +177,6 @@ const logout = () =>{
 // Logout end
 
 
-
-
-
-
 //====================== 3rd Party API ===============
 
 // 3rd Party API News
@@ -199,7 +201,7 @@ const getNewsSport = () =>{
     .done((data)=>{
         let news = data.data
         $('#card-news').empty()
-        for(let i=0; i<news.length-17; i++){
+        for(let i=0; i<news.length-15; i++){
             $('#card-news').append(`
             <div id="card-news">
                 <div class="card mb-3" style="max-width: 700px;">
@@ -212,7 +214,8 @@ const getNewsSport = () =>{
                                 <h5 class="card-title">${news[i].source.name}</h5>
                                 <p class="card-text">${news[i].title}</p>
                                 <a href="${news[i].url}" target="_blank" class="card-text" style="color:blue">buka berita</a>
-                                <p class="card-text mt-3"><small class="text-muted">${news[i].publishedAt}</small></p>
+                                <p class="card-text mt-3"><small class="text-muted">${new Date(Date.parse(news[i].publishedAt)).toISOString().split('T')[0]}</small></p>
+                                <button onClick="addToCollection(${news[i].url}) class="btn btn-sm btn-secondary" id="btn-${news[i].url}" type="submit">Add to Collection</button>
                             </div>
                         </div>
                     </div>
@@ -239,3 +242,70 @@ const getNewsHealth = () =>{
     })
 }
 // 3rd Party API News
+
+// 3rd Party API Weather
+const getWeatherJakarta = () =>{
+    $.ajax({
+        method: "GET",
+        url: `http://localhost:3000/weather/jakarta`
+    })
+    .done((data)=>{
+        $('#card-weather').empty()
+        $('#card-weather').append(`
+            <div class="col-md-5">
+                <div class="card" id="cardweather1">
+                    <div class="title"><p>Jakarta</p></div>
+                    <div class="temp mt-5">${data.data.current.temperature}<sup>&deg;</sup></div>
+                </div>
+            </div>
+        `)
+    })
+    .fail((err)=>{
+        console.log(err)
+    })
+}
+
+const getWeatherBandung = () =>{
+    $.ajax({
+        method: "GET",
+        url: `http://localhost:3000/weather/bandung`
+    })
+    .done((data)=>{
+        $('#card-weather').append(`
+            <div class="col-md-5">
+                <div class="card" id="cardweather2">
+                    <div class="title"><p>Bandung</p></div>
+                    <div class="temp mt-5">${data.data.current.temperature}<sup>&deg;</sup></div>
+                </div>
+            </div>
+        `)
+    })
+    .fail((err)=>{
+        console.log(err)
+    })
+}
+// 3rd Party API Weather
+
+// Lihat Password
+function lihatRegisPassword() {
+    var x = document.getElementById("password-regis");
+    if (x.type === "password") {
+        document.getElementById("show-regis-password").checked = true;
+        x.type = "text";
+    } else {
+        x.type = "password";
+        document.getElementById("show-regis-password").checked = false;
+    }
+}
+
+function lihatLoginPassword() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        document.getElementById("show-login-password").checked = true;
+        x.type = "text";
+    } else {
+        document.getElementById("show-login-password").checked = false;
+        x.type = "password";
+    }
+}
+// Lihat Password
