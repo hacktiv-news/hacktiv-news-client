@@ -214,7 +214,7 @@ const getNewsSport = () =>{
                                 <p class="card-text">${news[i].title}</p>
                                 <a href="${news[i].url}" target="_blank" class="card-text" style="color:blue">buka berita</a>
                                 <p class="card-text mt-3"><small class="text-muted">${new Date(Date.parse(news[i].publishedAt)).toISOString().split('T')[0]}</small></p>
-                                <button onClick="addToCollection(${news[i].url}) class="btn btn-sm btn-secondary" id="btn-${news[i].url}" type="submit">Add to Collection</button>
+                                <button class="btn btn-sm btn-secondary" id="btn-${news[i].url} onClick="addToCollection(${news[i].url}) " type="submit">Add to Collection</button>
                             </div>
                         </div>
                     </div>
