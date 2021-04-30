@@ -250,7 +250,7 @@ const getNewsSport = () =>{
         }
         $('button.add-btn').on('click', (e) => {
             e.preventDefault();
-            addToCollection(e.target.dataset.url, e.target.dataset.title);
+            addToCollection(e.target.dataset.id, e.target.dataset.title);
         });
     })
     .fail((err)=>{
@@ -398,6 +398,7 @@ function deleteCollection(id) {
 
 // Add collection
 function addToCollection(url, title) {
+    console.log(url, title)
     $.ajax({
       url: base_url + '/newscollection',
       method: 'POST',
