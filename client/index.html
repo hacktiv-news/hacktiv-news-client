@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-
+	<!-- Toast -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 	<!-- google oauth -->
 	<meta name="google-signin-client_id" content="976053621126-mbu5gjmfqa41lr6n59ak42i6nd7dco6j.apps.googleusercontent.com">
     
@@ -14,7 +15,9 @@
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!-- login -->
+	
+	<!-- style css -->
+	<link rel="stylesheet" href="style.css">
 
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Hacktive News</title>
@@ -57,7 +60,7 @@
 						</div>
 
 						<div>
-							<a id="btn-register" class="txt1">
+							<a id="btn-register" class="txt1" style="cursor: pointer;">
 								Register?
 							</a>
 						</div>
@@ -68,7 +71,7 @@
 							Login
 						</button>
 					</div>
-					&nbsp;&nbsp;&nbsp; -- or sign in with --
+					<p style="margin-left:27px;">-- or sign in with --</p>
 					<div class="container-login100-form-btn" style="margin-left: 20px; margin-top: 10px;">
 						
 						<div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -99,8 +102,8 @@
 							</label>
 						</div>
 					</div>
-					<div class="container-login100-form-btn">
-						<button id="button-regis" class="login100-form-btn" style="margin-right: 15px; cursor: pointer;">
+					<div class="container-login100-form-btn" >
+						<button id="button-regis" class="login100-form-btn" style="margin-right: 15px;">
 							Register
 						</button>
                         <button id="button-cancel-regis" class="login100-form-btn">
@@ -203,11 +206,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     <!-- google oauth -->
-	  <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<!-- Toast -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="index.js"></script>
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
   </body>
 </html>

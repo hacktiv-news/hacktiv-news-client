@@ -1,0 +1,26 @@
+body{ 
+    background-attachment: fixed;
+    display: block;
+    position: relative;
+} 
+
+body::after{
+    content: "";
+    /* background: url(''); */
+    background-repeat:no-repeat;
+    background-position:center center;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;  
+}
+
+.containerWeather{
+    background-color: #5f1919;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
