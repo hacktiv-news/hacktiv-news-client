@@ -224,23 +224,24 @@ const getNewsSport = () =>{
         url: `http://localhost:3000/news/sport`
     })
     .done((data)=>{
+        console.log(data)
         let news = data.data
         $('#card-news').empty()
-        for(let i=0; i<news.length-15; i++){
+        for(let i=0; i<news.length-14; i++){
             $('#card-news').append(`
             <div id="card-news">
-                <div class="card mb-3" style="max-width: 700px;">
+                <div class="card mt-4" style="max-width: 750px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="${news[i].urlToImage}" width="210" height="162">
+                            <img src="${news[i].urlToImage}" alt="data API News" width="250" height="200">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">${news[i].source.name}</h5>
                                 <p class="card-text">${news[i].title}</p>
-                                <a href="${news[i].url}" target="_blank" class="card-text" style="color:blue">buka berita</a>
-                                <p class="card-text mt-3"><small class="text-muted">${new Date(Date.parse(news[i].publishedAt)).toISOString().split('T')[0]}</small></p>
-                                <button type="button" data-id="${news[i].url}" data-title="${news[i].title}" class="btn btn-sm btn-secondary add-btn m-1">Add to Collection</button>
+                                <a href="${news[i].url}" target="_blank" class="card-text" style="color:blue">baca berita</a>
+                                <p class="card-text mt-1"><small class="text-muted">${new Date(Date.parse(news[i].publishedAt)).toISOString().split('T')[0]}</small></p>
+                                <button type="button" data-id="${news[i].url}" data-title="${news[i].title}" class="btn btn-sm btn-success add-btn m-1">Tambah Favorite <i class="fas fa-plus fa-sm"></i></button>
                             </div>
                         </div>
                     </div>
@@ -351,11 +352,11 @@ const getCollections = () => {
         data.data.forEach((collection, i) => {
           let row = `<tr>
                 <td>${i + 1}</td>
-                <td> <a href="${collection.url}">${collection.title.split('-')[0]}</a></td>   
-                <td class="d-flex">
+                <td> <a href="${collection.url}"  target="_blank">${collection.title.split('-')[0]}</a></td>   
+                <td >
                     <button type="button" data-id="${
                       collection.id
-                    }" class="btn btn-sm btn-danger delete-btn m-1">Delete</button>
+                    }" class="btn btn-sm btn-danger delete-btn m-1"><i class="fas fa-trash fa-sm"></i></button>
                 </td>
             </tr>`;
           rows += row;
@@ -432,4 +433,19 @@ function addToCollection(url, title) {
           }).showToast();
         });
       });
-  }
+}
+
+
+var $backToTop = $(".backTop");
+    $backToTop.hide();
+    $(window).on('scroll', function() {
+      if ($(this).scrollTop() > 100) {
+        $backToTop.fadeIn();
+      } else {
+        $backToTop.fadeOut();
+      }
+    });
+
+    $backToTop.on('click', function(e) {
+      $("html, body").animate({scrollTop: 0}, 500);
+    });

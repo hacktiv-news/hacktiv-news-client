@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 	<!-- google oauth -->
 	<meta name="google-signin-client_id" content="976053621126-mbu5gjmfqa41lr6n59ak42i6nd7dco6j.apps.googleusercontent.com">
+	<!-- fa icon -->
+	<script src="https://kit.fontawesome.com/b06334acad.js" crossorigin="anonymous"></script>
 	
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
@@ -59,7 +61,7 @@
 					<div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="show-login-password" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1" onclick="lihatLoginPassword()""> 
+							<label class="label-checkbox100" for="ckb1" onclick="lihatLoginPassword()"> 
 								Show password
 							</label>
 						</div>
@@ -123,12 +125,12 @@
     <!-- page Login Register End -->
 
     <!-- page Home -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    <nav class="navbar fixed-top navbar-expand-lg" id="navbar" style="background-color: rgb(243, 243, 243);">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto" style="margin-left:10px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto" style="margin-left:200px;">
 					<h3 id="judul-app"> - Hacktiv News - </h3>
-				  </ul>
+				</ul>
                 <form class="d-flex">
                 <button class="btn btn-success" id="btn-logout" type="submit">Logout</button>
                 </form>
@@ -136,73 +138,79 @@
         </div>
     </nav>
 		
-		<div class="container d-flex justify-content-center" id="containerWeather">
-			<div class="weather">
-					<div class="row" id="card-weather">
-							<div class="col-md-5">
-									<div class="card">
-											<div class="title"><p>Jakarta</p></div>
-											<div class="temp mt-5">+20<sup>&deg;</sup></div>
-									</div>
-							</div>
-							<div class="col-md-5">
-									<div class="card"> 
-											<div class="title"><p>Bandung</p></div>
-											<div class="temp mt-5">+18<sup>&deg;</sup></div>
-									</div>
-							</div>
-					</div>
-			</div>
-	</div>
+		
 	
 	
-	</div>
-    <div class="container mt-5" id="containerHome">
-			<div class="row">
-				<div class="col-8">
-					<!-- card -->
-					<div id="card-news">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-5">
-                        <img src="" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <!-- card end -->
-				</div>
-				<div class="col-4">
-					<div id="collection-container">
-						<h5 class="text-center">Your News Collections</h5>
-						<div class="row justify-content-center mt-2">
-							<div class="col-12">
-								<table class="table">
-									<thead>
-										<tr>
-											<th scope="col">No</th>
-											<th scope="col">Title</th>
-											<th scope="col">Action</th>
-										</tr>
-									</thead>
-									<tbody id="collections"></tbody>
-								</table>
+	<!-- </div> -->
+    <div class="container mt-5" id="containerHome" > 
+		<div class="row" style="margin-top: 150px;">
+			<div class="container d-flex justify-content-center" id="containerWeather" style="margin-top: -15px;">
+				<div class="weather">
+					<h3>Prediksi Cuaca saat ini:</h3>
+					<div class="row" id="card-weather" style="margin-left: 80px;">
+						<div class="col-md-6">
+							<div class="card">
+								<div class="title"><p>Jakarta</p></div>
+								<div class="temp mt-5">+20<sup>&deg;</sup></div>
+							</div>
+						</div>
+						<div class="col-md-">
+							<div class="card"> 
+								<div class="title"><p>Bandung</p></div>
+								<div class="temp mt-6">+18<sup>&deg;</sup></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-        
+		</div>
+
+		<div class="row" style="margin-top: 20px;">
+			<div class="col-8">
+				<h5> List News: </h5>
+				<!-- card -->
+				<div id="card-news">
+            		<div class="card mt-4" style="max-width: 540px;">
+                		<div class="row g-0">
+                    		<div class="col-md-5">
+                        		<img src="" alt="...">
+                    		</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+								</div>
+							</div>
+						</div>
+            		</div>
+          		</div>
+          		<!-- card end -->
+			</div>
+			<div class="col-4">
+				<h5 class="text-center">Berita Favorite</h5>
+				<div id="collection-container">
+					<div class="row justify-content-center mt-2">
+						<div class="col-12">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">Title</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody id="collections"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
     <!-- page Home end -->
-
+	<br><br>
+	<div class="backTop"><i class="fas fa-arrow-up"></i></div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
