@@ -24,6 +24,7 @@
 	<!-- style css -->
 	<link rel="stylesheet" href="style.css">
 
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Hacktive News</title>
   </head>
   <body>
@@ -179,7 +180,23 @@
           <!-- card end -->
 				</div>
 				<div class="col-4">
-					2 of 2
+					<div id="collection-container">
+						<h5 class="text-center">Your News Collections</h5>
+						<div class="row justify-content-center mt-2">
+							<div class="col-12">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">No</th>
+											<th scope="col">Title</th>
+											<th scope="col">Action</th>
+										</tr>
+									</thead>
+									<tbody id="collections"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
         

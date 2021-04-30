@@ -1,3 +1,5 @@
+const base_url = 'http://localhost:3000'
+
 $(document).ready(()=>{
     console.log('hello world')
 
@@ -61,6 +63,7 @@ const checkLogin = () =>{
         getNewsSport()
         // getNewsHealth()
         getWeather()
+        getCollections()
     }else{
         $('#login-regis-page').show()
         $('#form-login').show()
@@ -237,7 +240,7 @@ const getNewsSport = () =>{
                                 <p class="card-text">${news[i].title}</p>
                                 <a href="${news[i].url}" target="_blank" class="card-text" style="color:blue">buka berita</a>
                                 <p class="card-text mt-3"><small class="text-muted">${new Date(Date.parse(news[i].publishedAt)).toISOString().split('T')[0]}</small></p>
-                                <button class="btn btn-sm btn-secondary" id="btn-${news[i].url} onClick="addToCollection(${news[i].url}) " type="submit">Add to Collection</button>
+                                <button type="button" data-id="${news[i].url}" data-title="${news[i].title}" class="btn btn-sm btn-secondary add-btn m-1">Add to Collection</button>
                             </div>
                         </div>
                     </div>
@@ -245,6 +248,10 @@ const getNewsSport = () =>{
             </div>
             `)
         }
+        $('button.add-btn').on('click', (e) => {
+            e.preventDefault();
+            addToCollection(e.target.dataset.id, e.target.dataset.title);
+        });
     })
     .fail((err)=>{
         console.log(err)
@@ -328,3 +335,101 @@ function lihatLoginPassword() {
     }
 }
 // Lihat Password
+
+// Get collections
+const getCollections = () => {
+    $.ajax({
+      method: 'GET',
+      url: base_url + '/newscollection',
+      headers: {
+        access_token: localStorage.getItem('access_token')
+      }
+    })
+      .done((data) => {
+        console.log(data);
+        let rows = '';
+        data.data.forEach((collection, i) => {
+          let row = `<tr>
+                <td>${i + 1}</td>
+                <td> <a href="${collection.url}">${collection.title.split('-')[0]}</a></td>   
+                <td class="d-flex">
+                    <button type="button" data-id="${
+                      collection.id
+                    }" class="btn btn-sm btn-danger delete-btn m-1">Delete</button>
+                </td>
+            </tr>`;
+          rows += row;
+        });
+        clearCollection();
+        $('tbody#collections').html(rows);
+        $('button.delete-btn').on('click', (e) => {
+          e.preventDefault();
+          deleteCollection(e.target.dataset.id);
+        });
+      })
+      .fail((err) => {
+        const { errors } = err.responseJSON;
+        alert(errors.join(', '));
+      });
+  };
+// Get collections
+
+// Clear Collection
+const clearCollection = () => {
+    $('#collections').empty();
+};
+
+// Delete collection
+function deleteCollection(id) {
+    $.ajax({
+      url: base_url + '/newscollection/' + id,
+      method: 'DELETE',
+      headers: {
+        access_token: localStorage.getItem('access_token')
+      }
+    })
+      .done(() => {
+        checkLogin();
+      })
+      .fail((err) => {
+        console.log(err);
+      });
+}
+
+// Add collection
+function addToCollection(url, title) {
+    console.log(url, title)
+    $.ajax({
+      url: base_url + '/newscollection',
+      method: 'POST',
+      data: {
+        title,
+        url
+      },
+      headers: {
+        access_token: localStorage.getItem('access_token')
+      }
+    })
+      .done(() => {
+        Toastify({
+          text: 'Success add collection',
+          gravity: 'bottom', // `top` or `bottom`
+          position: 'right', // `left`, `center` or `right`
+          backgroundColor: 'green',
+          duration: 3000
+        }).showToast();
+        checkLogin();
+      })
+      .fail((err) => {
+        let msg = err.responseJSON.errors;
+        msg.forEach((error) => {
+          Toastify({
+            text: error,
+            gravity: 'bottom', // `top` or `bottom`
+            position: 'right', // `left`, `center` or `right`
+            backgroundColor: 'linear-gradient(to right, #f75b5b, #fc1d1d)',
+            duration: 3000
+          }).showToast();
+        });
+      });
+  }
